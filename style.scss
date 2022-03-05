@@ -1,0 +1,109 @@
+@import "variables";
+@import "mixin";
+
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    
+}
+
+*, *::before, *::after { 
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column ;
+    align-content: center ;
+    background: url(bg-pattern-top.svg) -300px -500px no-repeat, 
+    url(bg-pattern-bottom.svg) 700px 400px no-repeat;
+    background-color: $darkCyan;
+    
+}
+
+.card{
+    margin: auto;
+    height: 375px;
+    width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    @include breakpoint-down(small){
+        width: 330px;
+    }
+    .header{
+        height: 140px;
+        background-image: url(/bg-pattern-card.svg);
+        position: relative;
+        margin-bottom: 76px;
+        .white_circle{
+            height: 108px;
+            width: 108px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            bottom: -39%;
+            left: 50%;
+            transform: translateX(-50%);
+            .portrait{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                background-image: url(/image-victor.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                top: 4px;
+                left: 4px;
+            }
+        }
+    }
+    .center{
+        text-align: center;
+        font-size: 13px;
+        color: $darkGrayishBlue;
+        border-bottom: solid 1px $darkGray;
+        padding-bottom: 28px;
+        margin-bottom: 28px;
+        .first_line{
+            display: flex;
+            align-items: baseline;
+            
+            color: $veryDarkDesaturatedBlue;
+            justify-content: center;
+            
+            margin-bottom: 15px;
+            h1{
+                margin-right: 13px;
+                font-size: 19px;
+            }
+        }
+    }
+    .stat{
+        display: flex;
+        justify-content: space-around;
+        &__item{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            .number{
+                color: $veryDarkDesaturatedBlue;
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+            .unit{
+                color: $darkGray;
+                font-size: 10px;
+            }
+        }
+    }
+}
